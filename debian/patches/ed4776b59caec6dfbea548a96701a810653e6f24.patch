@@ -1,0 +1,25 @@
+From: Moritz Wanzenböck <moritz.wanzenboeck@catalysts.cc>
+Date: Wed Jul 11 11:57:46 2018 +0200
+Subject: Add missing return statement in numpy import
+    
+This adds a missing return statement in the python3 specific
+import logic of boost.python.numpy.
+    
+For python3 wrap_import_array() needs to return a pointer value.
+The import_array() macro only returns NULL in case of error. The
+missing return statement is UB, so the compiler can assume it does
+not happen. This means the compiler can assume the error branch
+is always taken, so import_array must always fail.
+
+diff --git a/libs/python/src/numpy/numpy.cpp b/libs/python/src/numpy/numpy.cpp
+index 8e259bc7..3ae2295e 100644
+--- a/libs/python/src/numpy/numpy.cpp
++++ b/libs/python/src/numpy/numpy.cpp
+@@ -19,6 +19,7 @@ static void wrap_import_array()
+ static void * wrap_import_array()
+ {
+   import_array();
++  return NULL;
+ }
+ #endif
+ 
