@@ -14,7 +14,7 @@ Build-Depends: debhelper (>= 10~), dpkg-dev (>= 1.16.1~), dctrl-tools, chrpath,
  docbook-xsl, docbook-xml, texlive-latex-base, ghostscript,
  dh-python,
  g++ (>= 4:5-0),
- python2, python-all-dev, python-numpy [amd64 arm64 armhf s390x ppc64el riscv64],
+ python, python-all-dev, python-numpy [amd64 arm64 armhf s390x ppc64el riscv64],
  python3, python3-all-dev (>= 3.1), python3-numpy [amd64 arm64 armhf s390x ppc64el riscv64]
 Build-Depends-Indep: graphviz
 Build-Conflicts: libopenmpi-dev (= 1.3.2-2)
