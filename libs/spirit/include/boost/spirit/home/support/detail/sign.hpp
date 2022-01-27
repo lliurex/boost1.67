@@ -15,7 +15,7 @@
 
 #include <boost/config/no_tr1/cmath.hpp>
 #include <boost/version.hpp>
-#if BOOST_VERSION < 104000
+#if BOOST_VERSION < 104000 
 #include <boost/spirit/home/support/detail/math/fpclassify.hpp>
 #include <boost/spirit/home/support/detail/math/signbit.hpp>
 #else
@@ -55,7 +55,13 @@ namespace boost { namespace spirit { namespace detail
 #if defined(BOOST_MATH_USE_STD_FPCLASSIFY) && !defined(BOOST_MATH_DISABLE_STD_FPCLASSIFY)
         return -x;
 #else
-        return (boost::math::changesign)(x);
+        typedef typename math::detail::fp_traits<T>::type traits_type;
+
+        typename traits_type::bits a;
+        traits_type::get_bits(x, a);
+        a ^= traits_type::sign;
+        traits_type::set_bits(x, a);
+        return x;
 #endif
     }
 #endif

@@ -5,8 +5,6 @@ if sys.platform == 'linux2':
     sys.setdlopenflags(dl.RTLD_NOW|dl.RTLD_GLOBAL)
     import mpi
     sys.setdlopenflags(flags)
-if sys.platform == 'linux':
-    from . import mpi
 else:
     import mpi
 

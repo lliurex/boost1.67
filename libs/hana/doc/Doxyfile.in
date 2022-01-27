@@ -133,6 +133,6 @@ SEARCHENGINE            = @HANA_SEARCHENGINE@
 # Mathjax (HTML only)
 USE_MATHJAX             = YES
 MATHJAX_FORMAT          = HTML-CSS
-MATHJAX_RELPATH         = file:///usr/share/javascript/mathjax/MathJax.js
+MATHJAX_RELPATH         = https://cdn.mathjax.org/mathjax/latest
 MATHJAX_EXTENSIONS      =
 MATHJAX_CODEFILE        = @Boost.Hana_SOURCE_DIR@/doc/js/mathjax-config.js
