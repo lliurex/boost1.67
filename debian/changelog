@@ -1,4 +1,4 @@
-boost1.67 (1.67.0-17ubuntu8) bionic; urgency=medium
+boost1.67 (1.67.0-17ubuntu8) bionic-updates; urgency=medium
 
   * Bionic backport
 
